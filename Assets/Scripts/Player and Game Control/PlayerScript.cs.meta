@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: d18284c1a07bc42b393fc8ebeaf9eff4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - manager: {instanceID: 0}
+  - sprites: {instanceID: 0}
+  - healthBar: {instanceID: 0}
+  - bulletPrefab: {instanceID: 0}
+  - audioSource: {fileID: 3277699218645089984, guid: aac103da46f3ff94583cceeda4c8bfd6,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

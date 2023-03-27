@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c442c43425f13104aa896acdf02f126a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - scoreText: {instanceID: 0}
+  - splat: {instanceID: 0}
+  - clip: {fileID: 8300000, guid: bdd8c4de6fa8e5f44a1d35ba936b41f3, type: 3}
+  - player: {fileID: 7944380395735745250, guid: f940dd1aa4eba48e1a966399c098631e,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
