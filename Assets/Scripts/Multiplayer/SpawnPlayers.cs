@@ -19,7 +19,7 @@ public class SpawnPlayers : MonoBehaviour
         manager.AddPlayer(playerscript);
         playerscript.Color(GameManager.players, manager);
         
-        Debug.LogWarning(GameManager.players);
+        Debug.Log(GameManager.players);
         GameManager.players += 1;
     }
 }

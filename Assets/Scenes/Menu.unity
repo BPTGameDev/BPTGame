@@ -3016,7 +3016,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: LeaderBoard
+  m_text: Leaderboard
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b145ce07389464f96b49f6e2b147dfa4, type: 2}
   m_sharedMaterial: {fileID: -353085866991394323, guid: b145ce07389464f96b49f6e2b147dfa4,
