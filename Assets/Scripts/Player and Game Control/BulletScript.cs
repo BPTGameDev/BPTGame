@@ -6,7 +6,7 @@ using Photon.Pun;
 public class BulletScript : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
-    public float maxLifetime = 0.9f;
+    public float maxLifetime = 2.0f;
     public float speed = 500.0f;
     PhotonView view;
     public PlayerScript player;
@@ -27,11 +27,18 @@ public class BulletScript : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 
+    //Delete Bullets When Invisible (off screen) 8/3/2023
+    public void OnBecameInvisible()
+    {
+        Destroy(this.gameObject);
+    }
+
     public void Project(Vector2 direction)
     {
         _rigidbody.AddForce(direction * this.speed);
 
-        Destroy(this.gameObject, this.maxLifetime);
+        //Seems like unnecessary to destroy based on timer if it is deleted when off screen
+        //Destroy(this.gameObject, this.maxLifetime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
