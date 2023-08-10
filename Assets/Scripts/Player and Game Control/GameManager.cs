@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public Transform cameraPosition;
     public int score = 0;
     public int checkMyScore = 0;
-    public int numOfFives = 0;      // Used to see how many times the score passes a multiple of 500
+    public int numOfFives = 1;      // Used to see how many times the score passes a multiple of 500
     public TextMeshProUGUI scoreText;
     public PlayfabManager playfabmanager;
 
@@ -99,16 +99,16 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // Working on Score based health add system - 8/3/23
-        // Update on 8/9/23 - working with a bug: first 500 score makes this code run twice.
-        if (numOfFives != 0)
-        {
-            checkMyScore = this.score / numOfFives;
-        }
-        else
+        // All code used to handle the Score Based Health Increase
+        if (numOfFives == 1)
         {
             checkMyScore = this.score;
         }
+        else
+        {
+            checkMyScore = this.score / numOfFives;
+        }
+
         if (checkMyScore >= 500)
         {
             // health is less than or equal to 80%, add 20%
@@ -118,29 +118,26 @@ public class GameManager : MonoBehaviour
                 this.player.currentHealth = PlayerScript.playerHealth;
 
                 this.player.healthBar.SetHealth(PlayerScript.playerHealth);
-                //checkMyScore -= 500;
                 numOfFives++;
 
-                Debug.Log("Within Under 80  " + checkMyScore + "  Fives: " + numOfFives);
+                //Debug.Log("Under 80%  " + checkMyScore + "  Fives: " + numOfFives);
             }
             // health is greater than 80%, max health
-            else if (PlayerScript.playerHealth > PlayerScript.maxHealth - 2)
+            else if (PlayerScript.playerHealth > PlayerScript.maxHealth - 2 && PlayerScript.playerHealth != PlayerScript.maxHealth)
             {
                 PlayerScript.playerHealth = PlayerScript.maxHealth;
                 this.player.currentHealth = PlayerScript.playerHealth;
 
                 this.player.healthBar.SetHealth(PlayerScript.playerHealth);
-                //checkMyScore -= 500;
                 numOfFives++;
 
-                Debug.Log("Within Over 80  " + checkMyScore + "  Fives: " + numOfFives);
+                //Debug.Log("Over 80%  " + checkMyScore + "  Fives: " + numOfFives);
             }
             // health is equal to max health, do nothing
             else if (PlayerScript.playerHealth == PlayerScript.maxHealth)
             {
-                //checkMyScore -= 500;
                 numOfFives++;
-                Debug.Log("Within Max  " + checkMyScore + "  Fives: " + numOfFives);
+                //Debug.Log("Max%  " + checkMyScore + "  Fives: " + numOfFives);
             }
         }
     }
