@@ -28,13 +28,14 @@ public class PlayerScript : MonoBehaviour
     private float nextFire = 0.0f;
     protected float bulletTimer;
     public int DelayAmount = 5;
-    
+
     public AudioSource CollisionAudioSource;
 
     PhotonView view;
 
     //this function is called in the spawner to change the color
-    public void Color(int players, GameManager m) {
+    public void Color(int players, GameManager m)
+    {
         Debug.Log("COLOR CHANGE CALLED");
         _spriteRenderer.sprite = sprites;
         manager = m;
@@ -57,19 +58,21 @@ public class PlayerScript : MonoBehaviour
     private void Update()
     {
         bulletTimer += Time.deltaTime;
-        if(bulletTimer > DelayAmount){
+        if (bulletTimer > DelayAmount)
+        {
             bulletTimer = 0;
-            bulletNumber ++;
+            bulletNumber++;
         }
 
         if (view.IsMine) //this is used for photon so that you only control one player
         {
-            
+
             /////////// MOUSE CONTROLS
             // Move and shoot bullets with left mouse click
             if (Input.GetMouseButton(0))
             {
-                if (Time.time > nextFire && bulletNumber>0) {
+                if (Time.time > nextFire && bulletNumber > 0)
+                {
                     Shoot();
                     nextFire = Time.time + fireRate;
                     bulletNumber--;
@@ -94,9 +97,9 @@ public class PlayerScript : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, targetPos, thrustSpeed * Time.deltaTime);
                 transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, botBound, topBound), transform.position.z);
             }
-            
+
             // Shooting function (only shoot once per click and not hold down)
-            
+
             /*if (Input.GetMouseButtonDown(0))
             {
                 Shoot();
@@ -141,6 +144,7 @@ public class PlayerScript : MonoBehaviour
         {
             _rigidbody.AddForce(this.transform.up * this.thrustSpeed);
         }
+
     }
 
     void Shoot()

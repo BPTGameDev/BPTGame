@@ -7,7 +7,7 @@ using TMPro;
 public class ScoringSystem : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
-    public static int scoreValue; 
+    public static int scoreValue;
     public AudioSource collectSound;
 
     void OnTriggerEnter(Collider other)
@@ -17,7 +17,8 @@ public class ScoringSystem : MonoBehaviour
         if (other.gameObject.transform.tag == "Vax")
         {
             scoreValue += 50;
-        } else if (other.gameObject.transform.tag == "Player")
+        }
+        else if (other.gameObject.transform.tag == "Player")
         {
             scoreValue -= 50;
         }
