@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
         this.player.gameObject.layer = LayerMask.NameToLayer("Ship");
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         int finalScore = this.score;
         PhotonNetwork.LeaveRoom();
